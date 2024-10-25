@@ -1,5 +1,10 @@
 pvs
 modbusdaemon
+mbx_pub
+mbx_sub
+cpushover
+ntfycurl
+ntfyDaemon
 
 # Prerequisites
 *.d
