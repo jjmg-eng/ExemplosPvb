@@ -1,6 +1,10 @@
 cpushover
 =========
 
+Este programa foi modificado para funcionar como um daemon de comunicação para o pvbrowser.
+
+Abaixo segue o texto original deste "readme":
+
 An API and command-line interface for sending messages via Pushover, written in ANSI C
 
 As per now, only the API is functional, and the CLI itself is yet to be written. If you want to use cpushover in your own application, this is what you do: 
