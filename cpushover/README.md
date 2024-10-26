@@ -18,3 +18,13 @@ As per now, only the API is functional, and the CLI itself is yet to be written.
 
 
 This project uses Dave Gamble's cJSON library, http://sourceforge.net/projects/cjson/. 
+
+Vídeo com o teste usando o cpushover:
+
+https://github.com/user-attachments/assets/539cac3a-27d8-4ecd-ab39-565dc4c2e4aa
+
+Vídeo usando o NTFY:
+
+https://github.com/user-attachments/assets/5902c744-d8f5-4bd6-8674-f414ea108eab
+
+
