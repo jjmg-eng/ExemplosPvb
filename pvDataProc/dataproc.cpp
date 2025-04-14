@@ -13,8 +13,8 @@ int main(){
             printf("%g / %g\n", shmData.F1, shmData.F2);
             SHMWRITE;
             
-           	sprintf(buf,"insert %s values (now(3),%g,%g)", tableName, shmData.F1, shmData.F2);
-	        db.dbQuery(buf);
+            sprintf(buf,"insert %s values (now(3),%g,%g)", tableName, shmData.F1, shmData.F2);
+            db.dbQuery(buf);
         }
 	rlsleep(10);
     }
