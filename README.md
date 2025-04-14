@@ -16,5 +16,6 @@ https://jjmg.eng.br/software.html
 Os seguintes exemplos estão disponíveis:
 
 - cpushover : modificação de um repositório com o mesmo nome para que funcione como um daemon de notificações para o pvbrowser com o Pushover. Inclui um exemplo para fazer o mesmo com NTFY;
-- mqtt : demonstração de MQTT no pvbrowser com o uso de mosquitto_pub e mosquito_sub
-- recipe : exemplo simples de como criar receitas no pvbrowser
+- mqtt : demonstração de MQTT no pvbrowser com o uso de mosquitto_pub e mosquito_sub;
+- recipe : exemplo simples de como criar receitas no pvbrowser;
+- pvDataProc : implementação de um programa processador de dados para tratar, agrupar e armazenar dados lidos de daemons de comunicação e enviá-los ao pvserver numa estrutura de dados via memória compartilhada.
