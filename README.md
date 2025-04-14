@@ -4,7 +4,7 @@ Para executar estes exemplos você precisa do [pvbrowser®](https://pvbrowser.de
 Para facilitar a configuração de um setup completo para trabalhar com o pvbrowser em uma distribuição Linux baseada no Ubuntu 24.04, foi criado um script com este propósito:
 
 ```
-curl -s jjmg.eng.br/install/setup-full.sh | sudo bash
+curl -Ls jjmg.eng.br/install/setup-full.sh | sudo bash
 ```
 
 Uma explicação detalhada sobre a instalação com este script está em 
