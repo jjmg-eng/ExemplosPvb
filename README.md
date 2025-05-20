@@ -19,3 +19,4 @@ Os seguintes exemplos estão disponíveis:
 - mqtt : demonstração de MQTT no pvbrowser com o uso de mosquitto_pub e mosquito_sub;
 - recipe : exemplo simples de como criar receitas no pvbrowser;
 - pvDataProc : implementação de um programa processador de dados para tratar, agrupar e armazenar dados lidos de daemons de comunicação e enviá-los ao pvserver numa estrutura de dados via memória compartilhada.
+- pvWavePlot : exemplo de como exibir gráficos criados com a matplotlib por um programa em Python rodando em segundo plano 
