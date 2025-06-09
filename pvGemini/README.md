@@ -37,6 +37,7 @@ Agora devem existir 4 programas executáveis :
 - gemini_client : cliente para terminal para a AI Gemini do Google.
 
 Agora será preciso obter uma chave de API no Google AI Studio: https://aistudio.google.com/
+
 Copie sua chave de API e crie uma varíavel de ambiente em ~/.bashrc
 Insira esta linha no final do arquivo:
 ```
