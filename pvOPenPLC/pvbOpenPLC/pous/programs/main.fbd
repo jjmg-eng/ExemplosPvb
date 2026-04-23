@@ -1,0 +1,1587 @@
+PROGRAM main
+VAR
+	OSC0 : OSC;
+	CTUD0 : CTUD;
+	Aumenta : bool AT %QX0.0;
+	Diminui : bool AT %QX0.1;
+	Contagem : int AT %QW0;
+END_VAR
+
+{
+  "name": "main",
+  "rung": {
+    "comment": "",
+    "nodes": [
+      {
+        "id": "BLOCK_b9195d89-a769-4a96-a67f-cae77ca13b10",
+        "type": "block",
+        "position": {
+          "x": 192,
+          "y": 464
+        },
+        "height": 72,
+        "width": 60,
+        "measured": {
+          "width": 60,
+          "height": 72
+        },
+        "draggable": true,
+        "selectable": true,
+        "data": {
+          "handles": [
+            {
+              "glbPosition": {
+                "x": 304,
+                "y": 320
+              },
+              "relPosition": {
+                "x": 0,
+                "y": 48
+              },
+              "id": "t",
+              "position": "left",
+              "type": "target",
+              "style": {
+                "top": 48,
+                "left": 0
+              }
+            },
+            {
+              "glbPosition": {
+                "x": 364,
+                "y": 320
+              },
+              "relPosition": {
+                "x": 60,
+                "y": 48
+              },
+              "id": "out",
+              "position": "right",
+              "type": "source",
+              "style": {
+                "top": 48,
+                "right": 0
+              }
+            }
+          ],
+          "inputHandles": [
+            {
+              "glbPosition": {
+                "x": 304,
+                "y": 320
+              },
+              "relPosition": {
+                "x": 0,
+                "y": 48
+              },
+              "id": "t",
+              "position": "left",
+              "type": "target",
+              "style": {
+                "top": 48,
+                "left": 0
+              }
+            }
+          ],
+          "outputHandles": [
+            {
+              "glbPosition": {
+                "x": 364,
+                "y": 320
+              },
+              "relPosition": {
+                "x": 60,
+                "y": 48
+              },
+              "id": "out",
+              "position": "right",
+              "type": "source",
+              "style": {
+                "top": 48,
+                "right": 0
+              }
+            }
+          ],
+          "inputConnector": {
+            "glbPosition": {
+              "x": 304,
+              "y": 320
+            },
+            "relPosition": {
+              "x": 0,
+              "y": 48
+            },
+            "id": "t",
+            "position": "left",
+            "type": "target",
+            "style": {
+              "top": 48,
+              "left": 0
+            }
+          },
+          "outputConnector": {
+            "glbPosition": {
+              "x": 364,
+              "y": 320
+            },
+            "relPosition": {
+              "x": 60,
+              "y": 48
+            },
+            "id": "out",
+            "position": "right",
+            "type": "source",
+            "style": {
+              "top": 48,
+              "right": 0
+            }
+          },
+          "numericId": "2551421",
+          "variant": {
+            "name": "OSC",
+            "type": "function-block",
+            "variables": [
+              {
+                "name": "t",
+                "class": "input",
+                "type": {
+                  "definition": "base-type",
+                  "value": "TIME"
+                }
+              },
+              {
+                "name": "out",
+                "class": "output",
+                "type": {
+                  "definition": "base-type",
+                  "value": "INT"
+                }
+              },
+              {
+                "name": "a",
+                "class": "local",
+                "type": {
+                  "definition": "base-type",
+                  "value": "BOOL"
+                }
+              },
+              {
+                "name": "TON0",
+                "class": "local",
+                "type": {
+                  "definition": "derived",
+                  "value": "TON"
+                }
+              },
+              {
+                "name": "TOF0",
+                "class": "local",
+                "type": {
+                  "definition": "derived",
+                  "value": "TOF"
+                }
+              },
+              {
+                "name": "out0",
+                "class": "local",
+                "type": {
+                  "definition": "base-type",
+                  "value": "BOOL"
+                }
+              }
+            ],
+            "documentation": "",
+            "extensible": false
+          },
+          "variable": {
+            "name": "OSC0"
+          },
+          "executionOrder": 0,
+          "executionControl": false,
+          "hasDivergence": true,
+          "draggable": true,
+          "selectable": true,
+          "deletable": true
+        }
+      },
+      {
+        "id": "INPUT-VARIABLE_80bf9b35-b48e-40cb-a672-6f495130a0ca",
+        "type": "input-variable",
+        "position": {
+          "x": 16,
+          "y": 496
+        },
+        "height": 32,
+        "width": 128,
+        "measured": {
+          "width": 128,
+          "height": 32
+        },
+        "draggable": true,
+        "selectable": true,
+        "data": {
+          "handles": [
+            {
+              "glbPosition": {
+                "x": 224,
+                "y": 320
+              },
+              "relPosition": {
+                "x": 112,
+                "y": 16
+              },
+              "id": "output-variable",
+              "position": "right",
+              "type": "source"
+            }
+          ],
+          "inputHandles": [],
+          "outputHandles": [
+            {
+              "glbPosition": {
+                "x": 224,
+                "y": 320
+              },
+              "relPosition": {
+                "x": 112,
+                "y": 16
+              },
+              "id": "output-variable",
+              "position": "right",
+              "type": "source"
+            }
+          ],
+          "outputConnector": {
+            "glbPosition": {
+              "x": 224,
+              "y": 320
+            },
+            "relPosition": {
+              "x": 112,
+              "y": 16
+            },
+            "id": "output-variable",
+            "position": "right",
+            "type": "source"
+          },
+          "numericId": "9643403",
+          "variable": {
+            "name": "t#100ms"
+          },
+          "executionOrder": 0,
+          "variant": "input-variable",
+          "negated": false,
+          "draggable": true,
+          "selectable": true,
+          "deletable": true,
+          "hasDivergence": false
+        }
+      },
+      {
+        "id": "BLOCK_9d030e7d-5e5b-4136-bf80-7fa38813c5cd",
+        "type": "block",
+        "position": {
+          "x": 304,
+          "y": 384
+        },
+        "height": 120,
+        "width": 84,
+        "measured": {
+          "width": 84,
+          "height": 120
+        },
+        "draggable": true,
+        "selectable": true,
+        "data": {
+          "handles": [
+            {
+              "glbPosition": {
+                "x": 336,
+                "y": 368
+              },
+              "relPosition": {
+                "x": 0,
+                "y": 48
+              },
+              "id": "IN1",
+              "position": "left",
+              "type": "target",
+              "style": {
+                "top": 48,
+                "left": 0
+              }
+            },
+            {
+              "glbPosition": {
+                "x": 336,
+                "y": 416
+              },
+              "relPosition": {
+                "x": 0,
+                "y": 96
+              },
+              "id": "IN2",
+              "position": "left",
+              "type": "target",
+              "style": {
+                "top": 96,
+                "left": 0
+              }
+            },
+            {
+              "glbPosition": {
+                "x": 420,
+                "y": 368
+              },
+              "relPosition": {
+                "x": 84,
+                "y": 48
+              },
+              "id": "OUT",
+              "position": "right",
+              "type": "source",
+              "style": {
+                "top": 48,
+                "right": 0
+              }
+            }
+          ],
+          "inputHandles": [
+            {
+              "glbPosition": {
+                "x": 336,
+                "y": 368
+              },
+              "relPosition": {
+                "x": 0,
+                "y": 48
+              },
+              "id": "IN1",
+              "position": "left",
+              "type": "target",
+              "style": {
+                "top": 48,
+                "left": 0
+              }
+            },
+            {
+              "glbPosition": {
+                "x": 336,
+                "y": 416
+              },
+              "relPosition": {
+                "x": 0,
+                "y": 96
+              },
+              "id": "IN2",
+              "position": "left",
+              "type": "target",
+              "style": {
+                "top": 96,
+                "left": 0
+              }
+            }
+          ],
+          "outputHandles": [
+            {
+              "glbPosition": {
+                "x": 420,
+                "y": 368
+              },
+              "relPosition": {
+                "x": 84,
+                "y": 48
+              },
+              "id": "OUT",
+              "position": "right",
+              "type": "source",
+              "style": {
+                "top": 48,
+                "right": 0
+              }
+            }
+          ],
+          "inputConnector": {
+            "glbPosition": {
+              "x": 336,
+              "y": 368
+            },
+            "relPosition": {
+              "x": 0,
+              "y": 48
+            },
+            "id": "IN1",
+            "position": "left",
+            "type": "target",
+            "style": {
+              "top": 48,
+              "left": 0
+            }
+          },
+          "outputConnector": {
+            "glbPosition": {
+              "x": 420,
+              "y": 368
+            },
+            "relPosition": {
+              "x": 84,
+              "y": 48
+            },
+            "id": "OUT",
+            "position": "right",
+            "type": "source",
+            "style": {
+              "top": 48,
+              "right": 0
+            }
+          },
+          "numericId": "10237510",
+          "variant": {
+            "name": "AND",
+            "type": "function",
+            "language": "st",
+            "variables": [
+              {
+                "name": "OUT",
+                "class": "output",
+                "type": {
+                  "definition": "generic-type",
+                  "value": "ANY_BIT"
+                }
+              },
+              {
+                "name": "IN1",
+                "class": "input",
+                "type": {
+                  "definition": "generic-type",
+                  "value": "ANY_BIT"
+                }
+              },
+              {
+                "name": "IN2",
+                "class": "input",
+                "type": {
+                  "definition": "generic-type",
+                  "value": "ANY_BIT"
+                }
+              }
+            ],
+            "body": "Bitwise AND",
+            "documentation": "(IN1: ANY_BIT, IN2:ANY_BIT) => OUT:ANY_BIT",
+            "extensible": true
+          },
+          "variable": {
+            "name": ""
+          },
+          "executionOrder": 0,
+          "executionControl": false,
+          "hasDivergence": false,
+          "draggable": true,
+          "selectable": true,
+          "deletable": true
+        }
+      },
+      {
+        "id": "BLOCK_8ba732d6-ce02-4eea-8f31-cabd4cc819c6",
+        "type": "block",
+        "position": {
+          "x": 304,
+          "y": 256
+        },
+        "height": 120,
+        "width": 84,
+        "measured": {
+          "width": 84,
+          "height": 120
+        },
+        "draggable": true,
+        "selectable": true,
+        "data": {
+          "handles": [
+            {
+              "glbPosition": {
+                "x": 352,
+                "y": 336
+              },
+              "relPosition": {
+                "x": 0,
+                "y": 48
+              },
+              "id": "IN1",
+              "position": "left",
+              "type": "target",
+              "style": {
+                "top": 48,
+                "left": 0
+              }
+            },
+            {
+              "glbPosition": {
+                "x": 352,
+                "y": 384
+              },
+              "relPosition": {
+                "x": 0,
+                "y": 96
+              },
+              "id": "IN2",
+              "position": "left",
+              "type": "target",
+              "style": {
+                "top": 96,
+                "left": 0
+              }
+            },
+            {
+              "glbPosition": {
+                "x": 436,
+                "y": 336
+              },
+              "relPosition": {
+                "x": 84,
+                "y": 48
+              },
+              "id": "OUT",
+              "position": "right",
+              "type": "source",
+              "style": {
+                "top": 48,
+                "right": 0
+              }
+            }
+          ],
+          "inputHandles": [
+            {
+              "glbPosition": {
+                "x": 352,
+                "y": 336
+              },
+              "relPosition": {
+                "x": 0,
+                "y": 48
+              },
+              "id": "IN1",
+              "position": "left",
+              "type": "target",
+              "style": {
+                "top": 48,
+                "left": 0
+              }
+            },
+            {
+              "glbPosition": {
+                "x": 352,
+                "y": 384
+              },
+              "relPosition": {
+                "x": 0,
+                "y": 96
+              },
+              "id": "IN2",
+              "position": "left",
+              "type": "target",
+              "style": {
+                "top": 96,
+                "left": 0
+              }
+            }
+          ],
+          "outputHandles": [
+            {
+              "glbPosition": {
+                "x": 436,
+                "y": 336
+              },
+              "relPosition": {
+                "x": 84,
+                "y": 48
+              },
+              "id": "OUT",
+              "position": "right",
+              "type": "source",
+              "style": {
+                "top": 48,
+                "right": 0
+              }
+            }
+          ],
+          "inputConnector": {
+            "glbPosition": {
+              "x": 352,
+              "y": 336
+            },
+            "relPosition": {
+              "x": 0,
+              "y": 48
+            },
+            "id": "IN1",
+            "position": "left",
+            "type": "target",
+            "style": {
+              "top": 48,
+              "left": 0
+            }
+          },
+          "outputConnector": {
+            "glbPosition": {
+              "x": 436,
+              "y": 336
+            },
+            "relPosition": {
+              "x": 84,
+              "y": 48
+            },
+            "id": "OUT",
+            "position": "right",
+            "type": "source",
+            "style": {
+              "top": 48,
+              "right": 0
+            }
+          },
+          "numericId": "5508925",
+          "variant": {
+            "name": "AND",
+            "type": "function",
+            "language": "st",
+            "variables": [
+              {
+                "name": "OUT",
+                "class": "output",
+                "type": {
+                  "definition": "generic-type",
+                  "value": "ANY_BIT"
+                }
+              },
+              {
+                "name": "IN1",
+                "class": "input",
+                "type": {
+                  "definition": "generic-type",
+                  "value": "ANY_BIT"
+                }
+              },
+              {
+                "name": "IN2",
+                "class": "input",
+                "type": {
+                  "definition": "generic-type",
+                  "value": "ANY_BIT"
+                }
+              }
+            ],
+            "body": "Bitwise AND",
+            "documentation": "(IN1: ANY_BIT, IN2:ANY_BIT) => OUT:ANY_BIT",
+            "extensible": true
+          },
+          "variable": {
+            "name": ""
+          },
+          "executionOrder": 0,
+          "executionControl": false,
+          "hasDivergence": false,
+          "draggable": true,
+          "selectable": true,
+          "deletable": true
+        }
+      },
+      {
+        "id": "INPUT-VARIABLE_c671ff83-53e9-40e6-92a2-15f564c151eb",
+        "type": "input-variable",
+        "position": {
+          "x": 16,
+          "y": 288
+        },
+        "height": 32,
+        "width": 128,
+        "measured": {
+          "width": 128,
+          "height": 32
+        },
+        "draggable": true,
+        "selectable": true,
+        "data": {
+          "handles": [
+            {
+              "glbPosition": {
+                "x": 144,
+                "y": 320
+              },
+              "relPosition": {
+                "x": 112,
+                "y": 16
+              },
+              "id": "output-variable",
+              "position": "right",
+              "type": "source"
+            }
+          ],
+          "inputHandles": [],
+          "outputHandles": [
+            {
+              "glbPosition": {
+                "x": 144,
+                "y": 320
+              },
+              "relPosition": {
+                "x": 112,
+                "y": 16
+              },
+              "id": "output-variable",
+              "position": "right",
+              "type": "source"
+            }
+          ],
+          "outputConnector": {
+            "glbPosition": {
+              "x": 144,
+              "y": 320
+            },
+            "relPosition": {
+              "x": 112,
+              "y": 16
+            },
+            "id": "output-variable",
+            "position": "right",
+            "type": "source"
+          },
+          "numericId": "3871564",
+          "variable": {
+            "name": "Aumenta",
+            "class": "local",
+            "type": {
+              "definition": "base-type",
+              "value": "bool"
+            },
+            "location": "%QX0.0",
+            "initialValue": null,
+            "documentation": "",
+            "debug": false,
+            "id": "broken-INPUT-VARIABLE_c671ff83-53e9-40e6-92a2-15f564c151eb"
+          },
+          "executionOrder": 0,
+          "variant": "input-variable",
+          "negated": false,
+          "draggable": true,
+          "selectable": true,
+          "deletable": true,
+          "hasDivergence": false,
+          "wrongVariable": true
+        }
+      },
+      {
+        "id": "INPUT-VARIABLE_7a2e7b66-63b4-4649-9d57-68409bd67788",
+        "type": "input-variable",
+        "position": {
+          "x": 16,
+          "y": 416
+        },
+        "height": 32,
+        "width": 128,
+        "measured": {
+          "width": 128,
+          "height": 32
+        },
+        "draggable": true,
+        "selectable": true,
+        "data": {
+          "handles": [
+            {
+              "glbPosition": {
+                "x": 160,
+                "y": 336
+              },
+              "relPosition": {
+                "x": 112,
+                "y": 16
+              },
+              "id": "output-variable",
+              "position": "right",
+              "type": "source"
+            }
+          ],
+          "inputHandles": [],
+          "outputHandles": [
+            {
+              "glbPosition": {
+                "x": 160,
+                "y": 336
+              },
+              "relPosition": {
+                "x": 112,
+                "y": 16
+              },
+              "id": "output-variable",
+              "position": "right",
+              "type": "source"
+            }
+          ],
+          "outputConnector": {
+            "glbPosition": {
+              "x": 160,
+              "y": 336
+            },
+            "relPosition": {
+              "x": 112,
+              "y": 16
+            },
+            "id": "output-variable",
+            "position": "right",
+            "type": "source"
+          },
+          "numericId": "8471566",
+          "variable": {
+            "name": "Diminui",
+            "class": "local",
+            "type": {
+              "definition": "base-type",
+              "value": "bool"
+            },
+            "location": "%QX0.1",
+            "initialValue": null,
+            "documentation": "",
+            "debug": false,
+            "id": "broken-INPUT-VARIABLE_7a2e7b66-63b4-4649-9d57-68409bd67788"
+          },
+          "executionOrder": 0,
+          "variant": "input-variable",
+          "negated": false,
+          "draggable": true,
+          "selectable": true,
+          "deletable": true,
+          "hasDivergence": false,
+          "wrongVariable": true
+        }
+      },
+      {
+        "id": "BLOCK_9888636b-cd1c-4f94-b03d-85f35602f482",
+        "type": "block",
+        "position": {
+          "x": 448,
+          "y": 336
+        },
+        "height": 264,
+        "width": 84,
+        "measured": {
+          "width": 84,
+          "height": 264
+        },
+        "draggable": true,
+        "selectable": true,
+        "data": {
+          "handles": [
+            {
+              "glbPosition": {
+                "x": 592,
+                "y": 432
+              },
+              "relPosition": {
+                "x": 0,
+                "y": 48
+              },
+              "id": "CU",
+              "position": "left",
+              "type": "target",
+              "style": {
+                "top": 48,
+                "left": 0
+              }
+            },
+            {
+              "glbPosition": {
+                "x": 592,
+                "y": 480
+              },
+              "relPosition": {
+                "x": 0,
+                "y": 96
+              },
+              "id": "CD",
+              "position": "left",
+              "type": "target",
+              "style": {
+                "top": 96,
+                "left": 0
+              }
+            },
+            {
+              "glbPosition": {
+                "x": 592,
+                "y": 528
+              },
+              "relPosition": {
+                "x": 0,
+                "y": 144
+              },
+              "id": "R",
+              "position": "left",
+              "type": "target",
+              "style": {
+                "top": 144,
+                "left": 0
+              }
+            },
+            {
+              "glbPosition": {
+                "x": 592,
+                "y": 576
+              },
+              "relPosition": {
+                "x": 0,
+                "y": 192
+              },
+              "id": "LD",
+              "position": "left",
+              "type": "target",
+              "style": {
+                "top": 192,
+                "left": 0
+              }
+            },
+            {
+              "glbPosition": {
+                "x": 592,
+                "y": 624
+              },
+              "relPosition": {
+                "x": 0,
+                "y": 240
+              },
+              "id": "PV",
+              "position": "left",
+              "type": "target",
+              "style": {
+                "top": 240,
+                "left": 0
+              }
+            },
+            {
+              "glbPosition": {
+                "x": 676,
+                "y": 432
+              },
+              "relPosition": {
+                "x": 84,
+                "y": 48
+              },
+              "id": "QU",
+              "position": "right",
+              "type": "source",
+              "style": {
+                "top": 48,
+                "right": 0
+              }
+            },
+            {
+              "glbPosition": {
+                "x": 676,
+                "y": 480
+              },
+              "relPosition": {
+                "x": 84,
+                "y": 96
+              },
+              "id": "QD",
+              "position": "right",
+              "type": "source",
+              "style": {
+                "top": 96,
+                "right": 0
+              }
+            },
+            {
+              "glbPosition": {
+                "x": 676,
+                "y": 528
+              },
+              "relPosition": {
+                "x": 84,
+                "y": 144
+              },
+              "id": "CV",
+              "position": "right",
+              "type": "source",
+              "style": {
+                "top": 144,
+                "right": 0
+              }
+            },
+            {
+              "glbPosition": {
+                "x": 676,
+                "y": 576
+              },
+              "relPosition": {
+                "x": 84,
+                "y": 192
+              },
+              "id": "CD_T",
+              "position": "right",
+              "type": "source",
+              "style": {
+                "top": 192,
+                "right": 0
+              }
+            },
+            {
+              "glbPosition": {
+                "x": 676,
+                "y": 624
+              },
+              "relPosition": {
+                "x": 84,
+                "y": 240
+              },
+              "id": "CU_T",
+              "position": "right",
+              "type": "source",
+              "style": {
+                "top": 240,
+                "right": 0
+              }
+            }
+          ],
+          "inputHandles": [
+            {
+              "glbPosition": {
+                "x": 592,
+                "y": 432
+              },
+              "relPosition": {
+                "x": 0,
+                "y": 48
+              },
+              "id": "CU",
+              "position": "left",
+              "type": "target",
+              "style": {
+                "top": 48,
+                "left": 0
+              }
+            },
+            {
+              "glbPosition": {
+                "x": 592,
+                "y": 480
+              },
+              "relPosition": {
+                "x": 0,
+                "y": 96
+              },
+              "id": "CD",
+              "position": "left",
+              "type": "target",
+              "style": {
+                "top": 96,
+                "left": 0
+              }
+            },
+            {
+              "glbPosition": {
+                "x": 592,
+                "y": 528
+              },
+              "relPosition": {
+                "x": 0,
+                "y": 144
+              },
+              "id": "R",
+              "position": "left",
+              "type": "target",
+              "style": {
+                "top": 144,
+                "left": 0
+              }
+            },
+            {
+              "glbPosition": {
+                "x": 592,
+                "y": 576
+              },
+              "relPosition": {
+                "x": 0,
+                "y": 192
+              },
+              "id": "LD",
+              "position": "left",
+              "type": "target",
+              "style": {
+                "top": 192,
+                "left": 0
+              }
+            },
+            {
+              "glbPosition": {
+                "x": 592,
+                "y": 624
+              },
+              "relPosition": {
+                "x": 0,
+                "y": 240
+              },
+              "id": "PV",
+              "position": "left",
+              "type": "target",
+              "style": {
+                "top": 240,
+                "left": 0
+              }
+            }
+          ],
+          "outputHandles": [
+            {
+              "glbPosition": {
+                "x": 676,
+                "y": 432
+              },
+              "relPosition": {
+                "x": 84,
+                "y": 48
+              },
+              "id": "QU",
+              "position": "right",
+              "type": "source",
+              "style": {
+                "top": 48,
+                "right": 0
+              }
+            },
+            {
+              "glbPosition": {
+                "x": 676,
+                "y": 480
+              },
+              "relPosition": {
+                "x": 84,
+                "y": 96
+              },
+              "id": "QD",
+              "position": "right",
+              "type": "source",
+              "style": {
+                "top": 96,
+                "right": 0
+              }
+            },
+            {
+              "glbPosition": {
+                "x": 676,
+                "y": 528
+              },
+              "relPosition": {
+                "x": 84,
+                "y": 144
+              },
+              "id": "CV",
+              "position": "right",
+              "type": "source",
+              "style": {
+                "top": 144,
+                "right": 0
+              }
+            },
+            {
+              "glbPosition": {
+                "x": 676,
+                "y": 576
+              },
+              "relPosition": {
+                "x": 84,
+                "y": 192
+              },
+              "id": "CD_T",
+              "position": "right",
+              "type": "source",
+              "style": {
+                "top": 192,
+                "right": 0
+              }
+            },
+            {
+              "glbPosition": {
+                "x": 676,
+                "y": 624
+              },
+              "relPosition": {
+                "x": 84,
+                "y": 240
+              },
+              "id": "CU_T",
+              "position": "right",
+              "type": "source",
+              "style": {
+                "top": 240,
+                "right": 0
+              }
+            }
+          ],
+          "inputConnector": {
+            "glbPosition": {
+              "x": 592,
+              "y": 432
+            },
+            "relPosition": {
+              "x": 0,
+              "y": 48
+            },
+            "id": "CU",
+            "position": "left",
+            "type": "target",
+            "style": {
+              "top": 48,
+              "left": 0
+            }
+          },
+          "outputConnector": {
+            "glbPosition": {
+              "x": 676,
+              "y": 432
+            },
+            "relPosition": {
+              "x": 84,
+              "y": 48
+            },
+            "id": "QU",
+            "position": "right",
+            "type": "source",
+            "style": {
+              "top": 48,
+              "right": 0
+            }
+          },
+          "numericId": "4540431",
+          "variant": {
+            "name": "CTUD",
+            "type": "function-block",
+            "language": "st",
+            "variables": [
+              {
+                "name": "CU",
+                "class": "input",
+                "type": {
+                  "definition": "base-type",
+                  "value": "BOOL"
+                }
+              },
+              {
+                "name": "CD",
+                "class": "input",
+                "type": {
+                  "definition": "base-type",
+                  "value": "BOOL"
+                }
+              },
+              {
+                "name": "R",
+                "class": "input",
+                "type": {
+                  "definition": "base-type",
+                  "value": "BOOL"
+                }
+              },
+              {
+                "name": "LD",
+                "class": "input",
+                "type": {
+                  "definition": "base-type",
+                  "value": "BOOL"
+                }
+              },
+              {
+                "name": "PV",
+                "class": "input",
+                "type": {
+                  "definition": "base-type",
+                  "value": "INT"
+                }
+              },
+              {
+                "name": "QU",
+                "class": "output",
+                "type": {
+                  "definition": "base-type",
+                  "value": "BOOL"
+                }
+              },
+              {
+                "name": "QD",
+                "class": "output",
+                "type": {
+                  "definition": "base-type",
+                  "value": "BOOL"
+                }
+              },
+              {
+                "name": "CV",
+                "class": "output",
+                "type": {
+                  "definition": "base-type",
+                  "value": "INT"
+                }
+              },
+              {
+                "name": "CD_T",
+                "class": "output",
+                "type": {
+                  "definition": "derived-type",
+                  "value": "R_TRIG"
+                }
+              },
+              {
+                "name": "CU_T",
+                "class": "output",
+                "type": {
+                  "definition": "derived-type",
+                  "value": "R_TRIG"
+                }
+              }
+            ],
+            "body": "CD_T(CD);\n        CU_T(CU);\n        IF R THEN CV := 0;\n        ELSIF LD THEN CV := PV;\n        ELSE\n          IF NOT (CU_T.Q AND CD_T.Q) THEN\n            IF CU_T.Q AND (CV < PV)\n            THEN CV := CV+1;\n            ELSIF CD_T.Q AND (CV > 0)\n            THEN CV := CV-1;\n            END_IF;\n          END_IF;\n        END_IF;\n        QU := (CV >= PV);\n        QD := (CV <= 0);",
+            "documentation": "The up-down counter has two inputs CU and CD. It can be used to both count up on one input and down on the other."
+          },
+          "variable": {
+            "name": "CTUD0"
+          },
+          "executionOrder": 0,
+          "executionControl": false,
+          "hasDivergence": false,
+          "draggable": true,
+          "selectable": true,
+          "deletable": true
+        }
+      },
+      {
+        "id": "INPUT-VARIABLE_5b6b9a89-80eb-49a9-9c23-ab647374e685",
+        "type": "input-variable",
+        "position": {
+          "x": 288,
+          "y": 560
+        },
+        "height": 32,
+        "width": 128,
+        "measured": {
+          "width": 128,
+          "height": 32
+        },
+        "draggable": true,
+        "selectable": true,
+        "data": {
+          "handles": [
+            {
+              "glbPosition": {
+                "x": 432,
+                "y": 608
+              },
+              "relPosition": {
+                "x": 112,
+                "y": 16
+              },
+              "id": "output-variable",
+              "position": "right",
+              "type": "source"
+            }
+          ],
+          "inputHandles": [],
+          "outputHandles": [
+            {
+              "glbPosition": {
+                "x": 432,
+                "y": 608
+              },
+              "relPosition": {
+                "x": 112,
+                "y": 16
+              },
+              "id": "output-variable",
+              "position": "right",
+              "type": "source"
+            }
+          ],
+          "outputConnector": {
+            "glbPosition": {
+              "x": 432,
+              "y": 608
+            },
+            "relPosition": {
+              "x": 112,
+              "y": 16
+            },
+            "id": "output-variable",
+            "position": "right",
+            "type": "source"
+          },
+          "numericId": "5822273",
+          "variable": {
+            "name": "100"
+          },
+          "executionOrder": 0,
+          "variant": "input-variable",
+          "negated": false,
+          "draggable": true,
+          "selectable": true,
+          "deletable": true,
+          "hasDivergence": false
+        }
+      },
+      {
+        "id": "OUTPUT-VARIABLE_395e3bfb-5639-4d1b-8a96-1681784c308d",
+        "type": "output-variable",
+        "position": {
+          "x": 608,
+          "y": 464
+        },
+        "height": 32,
+        "width": 128,
+        "measured": {
+          "width": 128,
+          "height": 32
+        },
+        "draggable": true,
+        "selectable": true,
+        "data": {
+          "handles": [
+            {
+              "glbPosition": {
+                "x": 608,
+                "y": 480
+              },
+              "relPosition": {
+                "x": 0,
+                "y": 16
+              },
+              "id": "input-variable",
+              "position": "left",
+              "type": "target"
+            }
+          ],
+          "inputHandles": [
+            {
+              "glbPosition": {
+                "x": 608,
+                "y": 480
+              },
+              "relPosition": {
+                "x": 0,
+                "y": 16
+              },
+              "id": "input-variable",
+              "position": "left",
+              "type": "target"
+            }
+          ],
+          "outputHandles": [],
+          "inputConnector": {
+            "glbPosition": {
+              "x": 608,
+              "y": 480
+            },
+            "relPosition": {
+              "x": 0,
+              "y": 16
+            },
+            "id": "input-variable",
+            "position": "left",
+            "type": "target"
+          },
+          "numericId": "3779511",
+          "variable": {
+            "name": "Contagem",
+            "class": "local",
+            "type": {
+              "definition": "base-type",
+              "value": "int"
+            },
+            "location": "%QW0",
+            "initialValue": null,
+            "documentation": "",
+            "debug": false,
+            "id": "broken-OUTPUT-VARIABLE_395e3bfb-5639-4d1b-8a96-1681784c308d"
+          },
+          "executionOrder": 0,
+          "variant": "output-variable",
+          "negated": false,
+          "draggable": true,
+          "selectable": true,
+          "deletable": true,
+          "hasDivergence": false,
+          "wrongVariable": true
+        }
+      }
+    ],
+    "edges": [
+      {
+        "id": "xy-edge__INPUT-VARIABLE_80bf9b35-b48e-40cb-a672-6f495130a0caoutput-variable-BLOCK_b9195d89-a769-4a96-a67f-cae77ca13b10t",
+        "source": "INPUT-VARIABLE_80bf9b35-b48e-40cb-a672-6f495130a0ca",
+        "sourceHandle": "output-variable",
+        "target": "BLOCK_b9195d89-a769-4a96-a67f-cae77ca13b10",
+        "targetHandle": "t",
+        "type": "smoothstep"
+      },
+      {
+        "id": "xy-edge__BLOCK_b9195d89-a769-4a96-a67f-cae77ca13b10out-BLOCK_9d030e7d-5e5b-4136-bf80-7fa38813c5cdIN2",
+        "source": "BLOCK_b9195d89-a769-4a96-a67f-cae77ca13b10",
+        "sourceHandle": "out",
+        "target": "BLOCK_9d030e7d-5e5b-4136-bf80-7fa38813c5cd",
+        "targetHandle": "IN2",
+        "type": "smoothstep"
+      },
+      {
+        "id": "xy-edge__BLOCK_b9195d89-a769-4a96-a67f-cae77ca13b10out-BLOCK_8ba732d6-ce02-4eea-8f31-cabd4cc819c6IN2",
+        "source": "BLOCK_b9195d89-a769-4a96-a67f-cae77ca13b10",
+        "sourceHandle": "out",
+        "target": "BLOCK_8ba732d6-ce02-4eea-8f31-cabd4cc819c6",
+        "targetHandle": "IN2",
+        "type": "smoothstep"
+      },
+      {
+        "id": "xy-edge__INPUT-VARIABLE_c671ff83-53e9-40e6-92a2-15f564c151eboutput-variable-BLOCK_8ba732d6-ce02-4eea-8f31-cabd4cc819c6IN1",
+        "source": "INPUT-VARIABLE_c671ff83-53e9-40e6-92a2-15f564c151eb",
+        "sourceHandle": "output-variable",
+        "target": "BLOCK_8ba732d6-ce02-4eea-8f31-cabd4cc819c6",
+        "targetHandle": "IN1",
+        "type": "smoothstep"
+      },
+      {
+        "id": "xy-edge__INPUT-VARIABLE_7a2e7b66-63b4-4649-9d57-68409bd67788output-variable-BLOCK_9d030e7d-5e5b-4136-bf80-7fa38813c5cdIN1",
+        "source": "INPUT-VARIABLE_7a2e7b66-63b4-4649-9d57-68409bd67788",
+        "sourceHandle": "output-variable",
+        "target": "BLOCK_9d030e7d-5e5b-4136-bf80-7fa38813c5cd",
+        "targetHandle": "IN1",
+        "type": "smoothstep"
+      },
+      {
+        "id": "xy-edge__BLOCK_9d030e7d-5e5b-4136-bf80-7fa38813c5cdOUT-BLOCK_9888636b-cd1c-4f94-b03d-85f35602f482CD",
+        "source": "BLOCK_9d030e7d-5e5b-4136-bf80-7fa38813c5cd",
+        "sourceHandle": "OUT",
+        "target": "BLOCK_9888636b-cd1c-4f94-b03d-85f35602f482",
+        "targetHandle": "CD",
+        "type": "smoothstep"
+      },
+      {
+        "id": "xy-edge__BLOCK_8ba732d6-ce02-4eea-8f31-cabd4cc819c6OUT-BLOCK_9888636b-cd1c-4f94-b03d-85f35602f482CU",
+        "source": "BLOCK_8ba732d6-ce02-4eea-8f31-cabd4cc819c6",
+        "sourceHandle": "OUT",
+        "target": "BLOCK_9888636b-cd1c-4f94-b03d-85f35602f482",
+        "targetHandle": "CU",
+        "type": "smoothstep"
+      },
+      {
+        "id": "xy-edge__INPUT-VARIABLE_5b6b9a89-80eb-49a9-9c23-ab647374e685output-variable-BLOCK_9888636b-cd1c-4f94-b03d-85f35602f482PV",
+        "source": "INPUT-VARIABLE_5b6b9a89-80eb-49a9-9c23-ab647374e685",
+        "sourceHandle": "output-variable",
+        "target": "BLOCK_9888636b-cd1c-4f94-b03d-85f35602f482",
+        "targetHandle": "PV",
+        "type": "smoothstep"
+      },
+      {
+        "id": "xy-edge__BLOCK_9888636b-cd1c-4f94-b03d-85f35602f482CV-OUTPUT-VARIABLE_395e3bfb-5639-4d1b-8a96-1681784c308dinput-variable",
+        "source": "BLOCK_9888636b-cd1c-4f94-b03d-85f35602f482",
+        "sourceHandle": "CV",
+        "target": "OUTPUT-VARIABLE_395e3bfb-5639-4d1b-8a96-1681784c308d",
+        "targetHandle": "input-variable",
+        "type": "smoothstep"
+      }
+    ]
+  }
+}
+END_PROGRAM

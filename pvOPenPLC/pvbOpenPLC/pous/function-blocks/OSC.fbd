@@ -1,0 +1,1184 @@
+FUNCTION_BLOCK OSC
+VAR_INPUT
+	t : time;
+END_VAR
+
+VAR_OUTPUT
+	out : bool;
+END_VAR
+
+VAR
+	a : bool;
+	TON0 : TON;
+	TOF0 : TOF;
+END_VAR
+
+{
+  "name": "OSC",
+  "rung": {
+    "comment": "",
+    "nodes": [
+      {
+        "id": "BLOCK_dbb830b5-ec38-4934-a5a7-32c09092aa93",
+        "type": "block",
+        "position": {
+          "x": 352,
+          "y": 112
+        },
+        "height": 120,
+        "width": 60,
+        "measured": {
+          "width": 60,
+          "height": 120
+        },
+        "draggable": true,
+        "selectable": true,
+        "data": {
+          "handles": [
+            {
+              "glbPosition": {
+                "x": 352,
+                "y": 160
+              },
+              "relPosition": {
+                "x": 0,
+                "y": 48
+              },
+              "id": "IN",
+              "position": "left",
+              "type": "target",
+              "style": {
+                "top": 48,
+                "left": 0
+              }
+            },
+            {
+              "glbPosition": {
+                "x": 352,
+                "y": 208
+              },
+              "relPosition": {
+                "x": 0,
+                "y": 96
+              },
+              "id": "PT",
+              "position": "left",
+              "type": "target",
+              "style": {
+                "top": 96,
+                "left": 0
+              }
+            },
+            {
+              "glbPosition": {
+                "x": 412,
+                "y": 160
+              },
+              "relPosition": {
+                "x": 60,
+                "y": 48
+              },
+              "id": "Q",
+              "position": "right",
+              "type": "source",
+              "style": {
+                "top": 48,
+                "right": 0
+              }
+            },
+            {
+              "glbPosition": {
+                "x": 412,
+                "y": 208
+              },
+              "relPosition": {
+                "x": 60,
+                "y": 96
+              },
+              "id": "ET",
+              "position": "right",
+              "type": "source",
+              "style": {
+                "top": 96,
+                "right": 0
+              }
+            }
+          ],
+          "inputHandles": [
+            {
+              "glbPosition": {
+                "x": 352,
+                "y": 160
+              },
+              "relPosition": {
+                "x": 0,
+                "y": 48
+              },
+              "id": "IN",
+              "position": "left",
+              "type": "target",
+              "style": {
+                "top": 48,
+                "left": 0
+              }
+            },
+            {
+              "glbPosition": {
+                "x": 352,
+                "y": 208
+              },
+              "relPosition": {
+                "x": 0,
+                "y": 96
+              },
+              "id": "PT",
+              "position": "left",
+              "type": "target",
+              "style": {
+                "top": 96,
+                "left": 0
+              }
+            }
+          ],
+          "outputHandles": [
+            {
+              "glbPosition": {
+                "x": 412,
+                "y": 160
+              },
+              "relPosition": {
+                "x": 60,
+                "y": 48
+              },
+              "id": "Q",
+              "position": "right",
+              "type": "source",
+              "style": {
+                "top": 48,
+                "right": 0
+              }
+            },
+            {
+              "glbPosition": {
+                "x": 412,
+                "y": 208
+              },
+              "relPosition": {
+                "x": 60,
+                "y": 96
+              },
+              "id": "ET",
+              "position": "right",
+              "type": "source",
+              "style": {
+                "top": 96,
+                "right": 0
+              }
+            }
+          ],
+          "inputConnector": {
+            "glbPosition": {
+              "x": 352,
+              "y": 160
+            },
+            "relPosition": {
+              "x": 0,
+              "y": 48
+            },
+            "id": "IN",
+            "position": "left",
+            "type": "target",
+            "style": {
+              "top": 48,
+              "left": 0
+            }
+          },
+          "outputConnector": {
+            "glbPosition": {
+              "x": 412,
+              "y": 160
+            },
+            "relPosition": {
+              "x": 60,
+              "y": 48
+            },
+            "id": "Q",
+            "position": "right",
+            "type": "source",
+            "style": {
+              "top": 48,
+              "right": 0
+            }
+          },
+          "numericId": "5713571",
+          "variant": {
+            "name": "TON",
+            "type": "function-block",
+            "language": "st",
+            "variables": [
+              {
+                "name": "IN",
+                "class": "input",
+                "type": {
+                  "definition": "base-type",
+                  "value": "BOOL"
+                },
+                "documentation": "first input parameter"
+              },
+              {
+                "name": "PT",
+                "class": "input",
+                "type": {
+                  "definition": "base-type",
+                  "value": "TIME"
+                },
+                "documentation": "second input parameter"
+              },
+              {
+                "name": "Q",
+                "class": "output",
+                "type": {
+                  "definition": "base-type",
+                  "value": "BOOL"
+                },
+                "initialValue": {
+                  "value": "FALSE"
+                },
+                "documentation": "first output parameter"
+              },
+              {
+                "name": "ET",
+                "class": "output",
+                "type": {
+                  "definition": "base-type",
+                  "value": "TIME"
+                },
+                "initialValue": {
+                  "value": "T#0s"
+                },
+                "documentation": "second output parameter"
+              },
+              {
+                "name": "STATE",
+                "class": "local",
+                "type": {
+                  "definition": "base-type",
+                  "value": "SINT"
+                },
+                "initialValue": {
+                  "value": "0"
+                },
+                "documentation": "internal state: 0-reset, 1-counting, 2-set"
+              },
+              {
+                "name": "PREV_IN",
+                "class": "local",
+                "type": {
+                  "definition": "base-type",
+                  "value": "BOOL"
+                },
+                "initialValue": {
+                  "value": "FALSE"
+                }
+              },
+              {
+                "name": "CURRENT_TIME",
+                "class": "local",
+                "type": {
+                  "definition": "base-type",
+                  "value": "TIME"
+                }
+              },
+              {
+                "name": "START_TIME",
+                "class": "local",
+                "type": {
+                  "definition": "base-type",
+                  "value": "TIME"
+                }
+              }
+            ],
+            "body": "{__SET_VAR(data__->,CURRENT_TIME,,__CURRENT_TIME)}\n\n      IF ((STATE = 0) AND NOT(PREV_IN) AND IN)   (* found rising edge on IN *)\n      THEN\n        (* start timer... *)\n        STATE := 1;\n        Q := TRUE;\n        START_TIME := CURRENT_TIME;\n\n      ELSE\n        (* STATE is 1 or 2 !! *)\n        IF (NOT(IN))\n        THEN\n          ET := T#0s;\n          Q := FALSE;\n          STATE := 0;\n\n        ELSIF (STATE = 1)\n        THEN\n          IF ((START_TIME + PT) <= CURRENT_TIME)\n          THEN\n            STATE := 2;\n            Q := TRUE;\n            ET := PT;\n          ELSE\n            ET := CURRENT_TIME - START_TIME;\n          END_IF;\n        END_IF;\n\n      END_IF;\n\n      PREV_IN := IN;",
+            "documentation": "The on-delay timer can be used to delay setting an output true, for fixed period after an input becomes true."
+          },
+          "variable": {
+            "name": "TON0",
+            "type": {
+              "definition": "derived",
+              "value": "TON"
+            },
+            "class": "local",
+            "location": "",
+            "documentation": "",
+            "debug": false
+          },
+          "executionOrder": 0,
+          "executionControl": false,
+          "hasDivergence": false,
+          "draggable": true,
+          "selectable": true,
+          "deletable": true
+        }
+      },
+      {
+        "id": "BLOCK_6fc71449-e98c-450a-b486-27c55731f754",
+        "type": "block",
+        "position": {
+          "x": 480,
+          "y": 112
+        },
+        "height": 72,
+        "width": 72,
+        "measured": {
+          "width": 72,
+          "height": 72
+        },
+        "draggable": true,
+        "selectable": true,
+        "data": {
+          "handles": [
+            {
+              "glbPosition": {
+                "x": 560,
+                "y": 192
+              },
+              "relPosition": {
+                "x": 0,
+                "y": 48
+              },
+              "id": "IN",
+              "position": "left",
+              "type": "target",
+              "style": {
+                "top": 48,
+                "left": 0
+              }
+            },
+            {
+              "glbPosition": {
+                "x": 632,
+                "y": 192
+              },
+              "relPosition": {
+                "x": 72,
+                "y": 48
+              },
+              "id": "OUT",
+              "position": "right",
+              "type": "source",
+              "style": {
+                "top": 48,
+                "right": 0
+              }
+            }
+          ],
+          "inputHandles": [
+            {
+              "glbPosition": {
+                "x": 560,
+                "y": 192
+              },
+              "relPosition": {
+                "x": 0,
+                "y": 48
+              },
+              "id": "IN",
+              "position": "left",
+              "type": "target",
+              "style": {
+                "top": 48,
+                "left": 0
+              }
+            }
+          ],
+          "outputHandles": [
+            {
+              "glbPosition": {
+                "x": 632,
+                "y": 192
+              },
+              "relPosition": {
+                "x": 72,
+                "y": 48
+              },
+              "id": "OUT",
+              "position": "right",
+              "type": "source",
+              "style": {
+                "top": 48,
+                "right": 0
+              }
+            }
+          ],
+          "inputConnector": {
+            "glbPosition": {
+              "x": 560,
+              "y": 192
+            },
+            "relPosition": {
+              "x": 0,
+              "y": 48
+            },
+            "id": "IN",
+            "position": "left",
+            "type": "target",
+            "style": {
+              "top": 48,
+              "left": 0
+            }
+          },
+          "outputConnector": {
+            "glbPosition": {
+              "x": 632,
+              "y": 192
+            },
+            "relPosition": {
+              "x": 72,
+              "y": 48
+            },
+            "id": "OUT",
+            "position": "right",
+            "type": "source",
+            "style": {
+              "top": 48,
+              "right": 0
+            }
+          },
+          "numericId": "1466428",
+          "variant": {
+            "name": "NOT",
+            "type": "function",
+            "language": "st",
+            "variables": [
+              {
+                "name": "OUT",
+                "class": "output",
+                "type": {
+                  "definition": "generic-type",
+                  "value": "ANY_BIT"
+                }
+              },
+              {
+                "name": "IN",
+                "class": "input",
+                "type": {
+                  "definition": "generic-type",
+                  "value": "ANY_BIT"
+                }
+              }
+            ],
+            "body": "Bitwise NOT",
+            "documentation": "(IN: ANY_BIT) => OUT:ANY_BIT",
+            "extensible": false
+          },
+          "variable": {
+            "name": ""
+          },
+          "executionOrder": 0,
+          "executionControl": false,
+          "hasDivergence": false,
+          "draggable": true,
+          "selectable": true,
+          "deletable": true
+        }
+      },
+      {
+        "id": "BLOCK_8e59ee00-39b8-4c09-b50f-6807cead434b",
+        "type": "block",
+        "position": {
+          "x": 608,
+          "y": 112
+        },
+        "height": 120,
+        "width": 60,
+        "measured": {
+          "width": 60,
+          "height": 120
+        },
+        "draggable": true,
+        "selectable": true,
+        "data": {
+          "handles": [
+            {
+              "glbPosition": {
+                "x": 816,
+                "y": 224
+              },
+              "relPosition": {
+                "x": 0,
+                "y": 48
+              },
+              "id": "IN",
+              "position": "left",
+              "type": "target",
+              "style": {
+                "top": 48,
+                "left": 0
+              }
+            },
+            {
+              "glbPosition": {
+                "x": 816,
+                "y": 272
+              },
+              "relPosition": {
+                "x": 0,
+                "y": 96
+              },
+              "id": "PT",
+              "position": "left",
+              "type": "target",
+              "style": {
+                "top": 96,
+                "left": 0
+              }
+            },
+            {
+              "glbPosition": {
+                "x": 876,
+                "y": 224
+              },
+              "relPosition": {
+                "x": 60,
+                "y": 48
+              },
+              "id": "Q",
+              "position": "right",
+              "type": "source",
+              "style": {
+                "top": 48,
+                "right": 0
+              }
+            },
+            {
+              "glbPosition": {
+                "x": 876,
+                "y": 272
+              },
+              "relPosition": {
+                "x": 60,
+                "y": 96
+              },
+              "id": "ET",
+              "position": "right",
+              "type": "source",
+              "style": {
+                "top": 96,
+                "right": 0
+              }
+            }
+          ],
+          "inputHandles": [
+            {
+              "glbPosition": {
+                "x": 816,
+                "y": 224
+              },
+              "relPosition": {
+                "x": 0,
+                "y": 48
+              },
+              "id": "IN",
+              "position": "left",
+              "type": "target",
+              "style": {
+                "top": 48,
+                "left": 0
+              }
+            },
+            {
+              "glbPosition": {
+                "x": 816,
+                "y": 272
+              },
+              "relPosition": {
+                "x": 0,
+                "y": 96
+              },
+              "id": "PT",
+              "position": "left",
+              "type": "target",
+              "style": {
+                "top": 96,
+                "left": 0
+              }
+            }
+          ],
+          "outputHandles": [
+            {
+              "glbPosition": {
+                "x": 876,
+                "y": 224
+              },
+              "relPosition": {
+                "x": 60,
+                "y": 48
+              },
+              "id": "Q",
+              "position": "right",
+              "type": "source",
+              "style": {
+                "top": 48,
+                "right": 0
+              }
+            },
+            {
+              "glbPosition": {
+                "x": 876,
+                "y": 272
+              },
+              "relPosition": {
+                "x": 60,
+                "y": 96
+              },
+              "id": "ET",
+              "position": "right",
+              "type": "source",
+              "style": {
+                "top": 96,
+                "right": 0
+              }
+            }
+          ],
+          "inputConnector": {
+            "glbPosition": {
+              "x": 816,
+              "y": 224
+            },
+            "relPosition": {
+              "x": 0,
+              "y": 48
+            },
+            "id": "IN",
+            "position": "left",
+            "type": "target",
+            "style": {
+              "top": 48,
+              "left": 0
+            }
+          },
+          "outputConnector": {
+            "glbPosition": {
+              "x": 876,
+              "y": 224
+            },
+            "relPosition": {
+              "x": 60,
+              "y": 48
+            },
+            "id": "Q",
+            "position": "right",
+            "type": "source",
+            "style": {
+              "top": 48,
+              "right": 0
+            }
+          },
+          "numericId": "4277444",
+          "variant": {
+            "name": "TOF",
+            "type": "function-block",
+            "language": "st",
+            "variables": [
+              {
+                "name": "IN",
+                "class": "input",
+                "type": {
+                  "definition": "base-type",
+                  "value": "BOOL"
+                },
+                "documentation": "first input parameter"
+              },
+              {
+                "name": "PT",
+                "class": "input",
+                "type": {
+                  "definition": "base-type",
+                  "value": "TIME"
+                },
+                "documentation": "second input parameter"
+              },
+              {
+                "name": "Q",
+                "class": "output",
+                "type": {
+                  "definition": "base-type",
+                  "value": "BOOL"
+                },
+                "initialValue": {
+                  "value": "FALSE"
+                },
+                "documentation": "first output parameter"
+              },
+              {
+                "name": "ET",
+                "class": "output",
+                "type": {
+                  "definition": "base-type",
+                  "value": "TIME"
+                },
+                "initialValue": {
+                  "value": "T#0s"
+                },
+                "documentation": "second output parameter"
+              },
+              {
+                "name": "STATE",
+                "class": "local",
+                "type": {
+                  "definition": "base-type",
+                  "value": "SINT"
+                },
+                "initialValue": {
+                  "value": "0"
+                },
+                "documentation": "internal state: 0-reset, 1-counting, 2-set"
+              },
+              {
+                "name": "PREV_IN",
+                "class": "local",
+                "type": {
+                  "definition": "base-type",
+                  "value": "BOOL"
+                },
+                "initialValue": {
+                  "value": "FALSE"
+                }
+              },
+              {
+                "name": "CURRENT_TIME",
+                "class": "local",
+                "type": {
+                  "definition": "base-type",
+                  "value": "TIME"
+                }
+              },
+              {
+                "name": "START_TIME",
+                "class": "local",
+                "type": {
+                  "definition": "base-type",
+                  "value": "TIME"
+                }
+              }
+            ],
+            "body": "{__SET_VAR(data__->,CURRENT_TIME,,__CURRENT_TIME)}\n\n      IF ((STATE = 0) AND PREV_IN AND NOT(IN))   (* found falling edge on IN *)\n      THEN\n        (* start timer... *)\n        STATE := 1;\n        START_TIME := CURRENT_TIME;\n\n      ELSE\n        (* STATE is 1 or 2 !! *)\n        IF (IN)\n        THEN\n          ET := T#0s;\n          STATE := 0;\n\n        ELSIF (STATE = 1)\n        THEN\n          IF ((START_TIME + PT) <= CURRENT_TIME)\n          THEN\n            STATE := 2;\n            ET := PT;\n          ELSE\n            ET := CURRENT_TIME - START_TIME;\n          END_IF;\n        END_IF;\n\n      END_IF;\n\n      Q := IN OR (STATE = 1);\n      PREV_IN := IN;",
+            "documentation": "The off-delay timer can be used to delay setting an output false, for fixed period after input goes false."
+          },
+          "variable": {
+            "name": "TOF0",
+            "type": {
+              "definition": "derived",
+              "value": "TOF"
+            },
+            "class": "local",
+            "location": "",
+            "documentation": "",
+            "debug": false
+          },
+          "executionOrder": 0,
+          "executionControl": false,
+          "hasDivergence": false,
+          "draggable": true,
+          "selectable": true,
+          "deletable": true
+        }
+      },
+      {
+        "id": "INPUT-VARIABLE_04e00923-3480-4e32-a1de-a0486c810d8a",
+        "type": "input-variable",
+        "position": {
+          "x": 176,
+          "y": 144
+        },
+        "height": 32,
+        "width": 128,
+        "measured": {
+          "width": 128,
+          "height": 32
+        },
+        "draggable": true,
+        "selectable": true,
+        "data": {
+          "handles": [
+            {
+              "glbPosition": {
+                "x": 352,
+                "y": 176
+              },
+              "relPosition": {
+                "x": 112,
+                "y": 16
+              },
+              "id": "output-variable",
+              "position": "right",
+              "type": "source"
+            }
+          ],
+          "inputHandles": [],
+          "outputHandles": [
+            {
+              "glbPosition": {
+                "x": 352,
+                "y": 176
+              },
+              "relPosition": {
+                "x": 112,
+                "y": 16
+              },
+              "id": "output-variable",
+              "position": "right",
+              "type": "source"
+            }
+          ],
+          "outputConnector": {
+            "glbPosition": {
+              "x": 352,
+              "y": 176
+            },
+            "relPosition": {
+              "x": 112,
+              "y": 16
+            },
+            "id": "output-variable",
+            "position": "right",
+            "type": "source"
+          },
+          "numericId": "2422276",
+          "variable": {
+            "name": "a",
+            "class": "local",
+            "type": {
+              "definition": "base-type",
+              "value": "bool"
+            },
+            "location": "",
+            "initialValue": null,
+            "documentation": "",
+            "debug": false,
+            "id": "broken-INPUT-VARIABLE_04e00923-3480-4e32-a1de-a0486c810d8a"
+          },
+          "executionOrder": 0,
+          "variant": "input-variable",
+          "negated": false,
+          "draggable": true,
+          "selectable": true,
+          "deletable": true,
+          "hasDivergence": false,
+          "wrongVariable": true
+        }
+      },
+      {
+        "id": "INPUT-VARIABLE_49c0843d-50c0-47b2-b145-6c4105eabab4",
+        "type": "input-variable",
+        "position": {
+          "x": 176,
+          "y": 240
+        },
+        "height": 32,
+        "width": 128,
+        "measured": {
+          "width": 128,
+          "height": 32
+        },
+        "draggable": true,
+        "selectable": true,
+        "data": {
+          "handles": [
+            {
+              "glbPosition": {
+                "x": 304,
+                "y": 272
+              },
+              "relPosition": {
+                "x": 112,
+                "y": 16
+              },
+              "id": "output-variable",
+              "position": "right",
+              "type": "source"
+            }
+          ],
+          "inputHandles": [],
+          "outputHandles": [
+            {
+              "glbPosition": {
+                "x": 304,
+                "y": 272
+              },
+              "relPosition": {
+                "x": 112,
+                "y": 16
+              },
+              "id": "output-variable",
+              "position": "right",
+              "type": "source"
+            }
+          ],
+          "outputConnector": {
+            "glbPosition": {
+              "x": 304,
+              "y": 272
+            },
+            "relPosition": {
+              "x": 112,
+              "y": 16
+            },
+            "id": "output-variable",
+            "position": "right",
+            "type": "source"
+          },
+          "numericId": "1649333",
+          "variable": {
+            "name": "t",
+            "class": "input",
+            "type": {
+              "definition": "base-type",
+              "value": "time"
+            },
+            "location": "",
+            "initialValue": null,
+            "documentation": "",
+            "debug": false,
+            "id": "broken-INPUT-VARIABLE_49c0843d-50c0-47b2-b145-6c4105eabab4"
+          },
+          "executionOrder": 0,
+          "variant": "input-variable",
+          "negated": false,
+          "draggable": true,
+          "selectable": true,
+          "deletable": true,
+          "hasDivergence": false,
+          "wrongVariable": true
+        }
+      },
+      {
+        "id": "OUTPUT-VARIABLE_b1b3ef2b-573b-4221-9b21-27e5bfadea9a",
+        "type": "output-variable",
+        "position": {
+          "x": 480,
+          "y": 64
+        },
+        "height": 32,
+        "width": 128,
+        "measured": {
+          "width": 128,
+          "height": 32
+        },
+        "draggable": true,
+        "selectable": true,
+        "data": {
+          "handles": [
+            {
+              "glbPosition": {
+                "x": 496,
+                "y": 80
+              },
+              "relPosition": {
+                "x": 0,
+                "y": 16
+              },
+              "id": "input-variable",
+              "position": "left",
+              "type": "target"
+            }
+          ],
+          "inputHandles": [
+            {
+              "glbPosition": {
+                "x": 496,
+                "y": 80
+              },
+              "relPosition": {
+                "x": 0,
+                "y": 16
+              },
+              "id": "input-variable",
+              "position": "left",
+              "type": "target"
+            }
+          ],
+          "outputHandles": [],
+          "inputConnector": {
+            "glbPosition": {
+              "x": 496,
+              "y": 80
+            },
+            "relPosition": {
+              "x": 0,
+              "y": 16
+            },
+            "id": "input-variable",
+            "position": "left",
+            "type": "target"
+          },
+          "numericId": "7450601",
+          "variable": {
+            "name": "out",
+            "class": "output",
+            "type": {
+              "definition": "base-type",
+              "value": "bool"
+            },
+            "location": "",
+            "initialValue": null,
+            "documentation": "",
+            "debug": false,
+            "id": "broken-OUTPUT-VARIABLE_b1b3ef2b-573b-4221-9b21-27e5bfadea9a"
+          },
+          "executionOrder": 0,
+          "variant": "output-variable",
+          "negated": false,
+          "draggable": true,
+          "selectable": true,
+          "deletable": true,
+          "hasDivergence": false,
+          "wrongVariable": true
+        }
+      },
+      {
+        "id": "OUTPUT-VARIABLE_0659a4ec-1ae8-42d9-b103-28de29ee0d5f",
+        "type": "output-variable",
+        "position": {
+          "x": 720,
+          "y": 144
+        },
+        "height": 32,
+        "width": 128,
+        "measured": {
+          "width": 128,
+          "height": 32
+        },
+        "draggable": true,
+        "selectable": true,
+        "data": {
+          "handles": [
+            {
+              "glbPosition": {
+                "x": 736,
+                "y": 176
+              },
+              "relPosition": {
+                "x": 0,
+                "y": 16
+              },
+              "id": "input-variable",
+              "position": "left",
+              "type": "target"
+            }
+          ],
+          "inputHandles": [
+            {
+              "glbPosition": {
+                "x": 736,
+                "y": 176
+              },
+              "relPosition": {
+                "x": 0,
+                "y": 16
+              },
+              "id": "input-variable",
+              "position": "left",
+              "type": "target"
+            }
+          ],
+          "outputHandles": [],
+          "inputConnector": {
+            "glbPosition": {
+              "x": 736,
+              "y": 176
+            },
+            "relPosition": {
+              "x": 0,
+              "y": 16
+            },
+            "id": "input-variable",
+            "position": "left",
+            "type": "target"
+          },
+          "numericId": "7718793",
+          "variable": {
+            "name": "a",
+            "class": "local",
+            "type": {
+              "definition": "base-type",
+              "value": "bool"
+            },
+            "location": "",
+            "initialValue": null,
+            "documentation": "",
+            "debug": false,
+            "id": "broken-OUTPUT-VARIABLE_0659a4ec-1ae8-42d9-b103-28de29ee0d5f"
+          },
+          "executionOrder": 0,
+          "variant": "output-variable",
+          "negated": false,
+          "draggable": true,
+          "selectable": true,
+          "deletable": true,
+          "hasDivergence": false,
+          "wrongVariable": true
+        }
+      }
+    ],
+    "edges": [
+      {
+        "id": "xy-edge__INPUT-VARIABLE_49c0843d-50c0-47b2-b145-6c4105eabab4output-variable-BLOCK_dbb830b5-ec38-4934-a5a7-32c09092aa93PT",
+        "source": "INPUT-VARIABLE_49c0843d-50c0-47b2-b145-6c4105eabab4",
+        "sourceHandle": "output-variable",
+        "target": "BLOCK_dbb830b5-ec38-4934-a5a7-32c09092aa93",
+        "targetHandle": "PT",
+        "type": "smoothstep"
+      },
+      {
+        "id": "xy-edge__INPUT-VARIABLE_49c0843d-50c0-47b2-b145-6c4105eabab4output-variable-BLOCK_8e59ee00-39b8-4c09-b50f-6807cead434bPT",
+        "source": "INPUT-VARIABLE_49c0843d-50c0-47b2-b145-6c4105eabab4",
+        "sourceHandle": "output-variable",
+        "target": "BLOCK_8e59ee00-39b8-4c09-b50f-6807cead434b",
+        "targetHandle": "PT",
+        "type": "smoothstep"
+      },
+      {
+        "id": "xy-edge__BLOCK_dbb830b5-ec38-4934-a5a7-32c09092aa93Q-BLOCK_6fc71449-e98c-450a-b486-27c55731f754IN",
+        "source": "BLOCK_dbb830b5-ec38-4934-a5a7-32c09092aa93",
+        "sourceHandle": "Q",
+        "target": "BLOCK_6fc71449-e98c-450a-b486-27c55731f754",
+        "targetHandle": "IN",
+        "type": "smoothstep"
+      },
+      {
+        "id": "xy-edge__BLOCK_6fc71449-e98c-450a-b486-27c55731f754OUT-BLOCK_8e59ee00-39b8-4c09-b50f-6807cead434bIN",
+        "source": "BLOCK_6fc71449-e98c-450a-b486-27c55731f754",
+        "sourceHandle": "OUT",
+        "target": "BLOCK_8e59ee00-39b8-4c09-b50f-6807cead434b",
+        "targetHandle": "IN",
+        "type": "smoothstep"
+      },
+      {
+        "id": "xy-edge__INPUT-VARIABLE_04e00923-3480-4e32-a1de-a0486c810d8aoutput-variable-BLOCK_dbb830b5-ec38-4934-a5a7-32c09092aa93IN",
+        "source": "INPUT-VARIABLE_04e00923-3480-4e32-a1de-a0486c810d8a",
+        "sourceHandle": "output-variable",
+        "target": "BLOCK_dbb830b5-ec38-4934-a5a7-32c09092aa93",
+        "targetHandle": "IN",
+        "type": "smoothstep"
+      },
+      {
+        "id": "xy-edge__BLOCK_dbb830b5-ec38-4934-a5a7-32c09092aa93Q-OUTPUT-VARIABLE_b1b3ef2b-573b-4221-9b21-27e5bfadea9ainput-variable",
+        "source": "BLOCK_dbb830b5-ec38-4934-a5a7-32c09092aa93",
+        "sourceHandle": "Q",
+        "target": "OUTPUT-VARIABLE_b1b3ef2b-573b-4221-9b21-27e5bfadea9a",
+        "targetHandle": "input-variable",
+        "type": "smoothstep"
+      },
+      {
+        "id": "xy-edge__BLOCK_8e59ee00-39b8-4c09-b50f-6807cead434bQ-OUTPUT-VARIABLE_0659a4ec-1ae8-42d9-b103-28de29ee0d5finput-variable",
+        "source": "BLOCK_8e59ee00-39b8-4c09-b50f-6807cead434b",
+        "sourceHandle": "Q",
+        "target": "OUTPUT-VARIABLE_0659a4ec-1ae8-42d9-b103-28de29ee0d5f",
+        "targetHandle": "input-variable",
+        "type": "smoothstep"
+      }
+    ]
+  }
+}
+END_FUNCTION_BLOCK
