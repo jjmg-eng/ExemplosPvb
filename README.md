@@ -22,3 +22,4 @@ Os seguintes exemplos estão disponíveis:
 - pvWavePlot : exemplo de como exibir gráficos criados com a matplotlib por um programa em Python rodando em segundo plano
 - PVB_ClassicLadder : exemplo de softplc combinado com o pvbrowser
 - pvGemini : exemplo de aplicação do pvbrowser com a AI Gemini
+- pvOpenPLC : exemplo de integração do OpenPLC com o pvbrowser
