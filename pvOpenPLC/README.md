@@ -54,5 +54,7 @@ g++ modbusdaemon.cpp -o modbusdaemon -I /opt/pvb/rllib/lib/ -lrllib
 ## 📺 Demonstração em Vídeo
 
 Confira a explicação detalhada, os procedimentos de compilação via terminal/pvdevelop e a animação da lógica em tempo real:
-https://youtu.be/WWn3su62S2g?si=ZqeRSfM-zZJDS5oj
 
+https://github.com/user-attachments/assets/b80298bd-a233-44f0-baf1-c502d92aa8f1
+
+Pelo YouTube: https://youtu.be/WWn3su62S2g?si=ZqeRSfM-zZJDS5oj
