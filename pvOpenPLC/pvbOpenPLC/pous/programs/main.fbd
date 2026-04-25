@@ -756,8 +756,7 @@ END_VAR
             "location": "%QX0.0",
             "initialValue": null,
             "documentation": "",
-            "debug": false,
-            "id": "broken-INPUT-VARIABLE_c671ff83-53e9-40e6-92a2-15f564c151eb"
+            "debug": false
           },
           "executionOrder": 0,
           "variant": "input-variable",
@@ -840,8 +839,7 @@ END_VAR
             "location": "%QX0.1",
             "initialValue": null,
             "documentation": "",
-            "debug": false,
-            "id": "broken-INPUT-VARIABLE_7a2e7b66-63b4-4649-9d57-68409bd67788"
+            "debug": false
           },
           "executionOrder": 0,
           "variant": "input-variable",

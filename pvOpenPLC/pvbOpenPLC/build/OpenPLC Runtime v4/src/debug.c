@@ -33,7 +33,7 @@
 #define SAME_ENDIANNESS      0
 #define REVERSE_ENDIANNESS   1
 
-char plc_program_md5[] = "268ea99e79a1c87d6514511da8299a71";
+char plc_program_md5[] = "c032cf3461d51a6a543803b27e49f81d";
 
 uint8_t endianness;
 
@@ -113,14 +113,14 @@ size_t get_var_size(size_t idx)
     switch (debug_vars[idx].type) {
     case TIME_ENUM:
         return sizeof(TIME);
+    case INT_ENUM:
+    case INT_O_ENUM:
+        return sizeof(INT);
     case SINT_ENUM:
         return sizeof(SINT);
     case BOOL_ENUM:
     case BOOL_O_ENUM:
         return sizeof(BOOL);
-    case INT_ENUM:
-    case INT_O_ENUM:
-        return sizeof(INT);
     default:
         return 0;
     }
@@ -133,6 +133,12 @@ void *get_var_addr(size_t idx)
     switch (debug_vars[idx].type) {
     case TIME_ENUM:
         return (void *)&((__IEC_TIME_t *) ptr)->value;
+    case INT_ENUM:
+        return (void *)&((__IEC_INT_t *) ptr)->value;
+    case INT_O_ENUM:
+        return (void *)((((__IEC_INT_p *) ptr)->flags & __IEC_FORCE_FLAG)
+                        ? &(((__IEC_INT_p *) ptr)->fvalue)
+                        : ((__IEC_INT_p *) ptr)->value);
     case SINT_ENUM:
         return (void *)&((__IEC_SINT_t *) ptr)->value;
     case BOOL_ENUM:
@@ -141,12 +147,6 @@ void *get_var_addr(size_t idx)
         return (void *)((((__IEC_BOOL_p *) ptr)->flags & __IEC_FORCE_FLAG)
                         ? &(((__IEC_BOOL_p *) ptr)->fvalue)
                         : ((__IEC_BOOL_p *) ptr)->value);
-    case INT_ENUM:
-        return (void *)&((__IEC_INT_t *) ptr)->value;
-    case INT_O_ENUM:
-        return (void *)((((__IEC_INT_p *) ptr)->flags & __IEC_FORCE_FLAG)
-                        ? &(((__IEC_INT_p *) ptr)->fvalue)
-                        : ((__IEC_INT_p *) ptr)->value);
     default:
         return 0;
     }
@@ -165,6 +165,18 @@ void force_var(size_t idx, bool forced, void *val)
             break;
         }
     
+        case INT_ENUM: {
+            memcpy(&((__IEC_INT_t *) ptr)->value, val, var_size);
+            ((__IEC_INT_t *) ptr)->flags |= __IEC_FORCE_FLAG;
+            break;
+        }
+    
+        case INT_O_ENUM: {
+            memcpy((((__IEC_INT_p *) ptr)->value), val, var_size);
+            memcpy(&((__IEC_INT_p *) ptr)->fvalue, val, var_size);
+            ((__IEC_INT_p *) ptr)->flags |= __IEC_FORCE_FLAG;
+            break;
+        }
         case SINT_ENUM: {
             memcpy(&((__IEC_SINT_t *) ptr)->value, val, var_size);
             ((__IEC_SINT_t *) ptr)->flags |= __IEC_FORCE_FLAG;
@@ -183,18 +195,6 @@ void force_var(size_t idx, bool forced, void *val)
             ((__IEC_BOOL_p *) ptr)->flags |= __IEC_FORCE_FLAG;
             break;
         }
-        case INT_ENUM: {
-            memcpy(&((__IEC_INT_t *) ptr)->value, val, var_size);
-            ((__IEC_INT_t *) ptr)->flags |= __IEC_FORCE_FLAG;
-            break;
-        }
-    
-        case INT_O_ENUM: {
-            memcpy((((__IEC_INT_p *) ptr)->value), val, var_size);
-            memcpy(&((__IEC_INT_p *) ptr)->fvalue, val, var_size);
-            ((__IEC_INT_p *) ptr)->flags |= __IEC_FORCE_FLAG;
-            break;
-        }
         default:
             break;
         }
@@ -202,6 +202,12 @@ void force_var(size_t idx, bool forced, void *val)
         switch (debug_vars[idx].type) {
         case TIME_ENUM:
             ((__IEC_TIME_t *) ptr)->flags &= ~__IEC_FORCE_FLAG;
+            break;
+        case INT_ENUM:
+            ((__IEC_INT_t *) ptr)->flags &= ~__IEC_FORCE_FLAG;
+            break;
+        case INT_O_ENUM:
+            ((__IEC_INT_p *) ptr)->flags &= ~__IEC_FORCE_FLAG;
             break;
         case SINT_ENUM:
             ((__IEC_SINT_t *) ptr)->flags &= ~__IEC_FORCE_FLAG;
@@ -211,12 +217,6 @@ void force_var(size_t idx, bool forced, void *val)
             break;
         case BOOL_O_ENUM:
             ((__IEC_BOOL_p *) ptr)->flags &= ~__IEC_FORCE_FLAG;
-            break;
-        case INT_ENUM:
-            ((__IEC_INT_t *) ptr)->flags &= ~__IEC_FORCE_FLAG;
-            break;
-        case INT_O_ENUM:
-            ((__IEC_INT_p *) ptr)->flags &= ~__IEC_FORCE_FLAG;
             break;
         default:
             break;

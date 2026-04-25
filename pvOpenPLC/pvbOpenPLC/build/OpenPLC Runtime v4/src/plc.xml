@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project xmlns="http://www.plcopen.org/xml/tc6_0201" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:ns1="http://www.plcopen.org/xml/tc6_0201">
-  <fileHeader companyName="Unknown" productName="Unnamed" productVersion="1" creationDateTime="2026-04-23T14:19:54"/>
-  <contentHeader name="Unnamed" modificationDateTime="2026-04-23T14:19:54">
+  <fileHeader companyName="Unknown" productName="Unnamed" productVersion="1" creationDateTime="2026-04-25T16:55:07"/>
+  <contentHeader name="Unnamed" modificationDateTime="2026-04-25T16:55:07">
     <coordinateInfo>
       <fbd>
         <scaling x="16" y="16"/>
@@ -54,16 +54,16 @@
         <body>
           <FBD>
             <block localId="5713571" typeName="TON" instanceName="TON0" executionOrderId="0" height="120" width="60">
-              <position x="352" y="112"/>
+              <position x="704" y="112"/>
               <inputVariables>
                 <variable formalParameter="IN">
                   <connectionPointIn>
                     <relPosition x="0" y="48"/>
-                    <connection refLocalId="2422276">
+                    <connection refLocalId="4277444" formalParameter="Q">
                       <position x="352" y="160"/>
-                      <position x="352" y="160"/>
-                      <position x="352" y="176"/>
-                      <position x="352" y="176"/>
+                      <position x="614" y="160"/>
+                      <position x="614" y="224"/>
+                      <position x="876" y="224"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -94,16 +94,16 @@
               </outputVariables>
             </block>
             <block localId="1466428" typeName="NOT" executionOrderId="0" height="72" width="72">
-              <position x="480" y="112"/>
+              <position x="496" y="112"/>
               <inputVariables>
                 <variable formalParameter="IN">
                   <connectionPointIn>
                     <relPosition x="0" y="48"/>
-                    <connection refLocalId="5713571" formalParameter="Q">
+                    <connection refLocalId="2422276">
                       <position x="560" y="192"/>
-                      <position x="486" y="192"/>
-                      <position x="486" y="160"/>
-                      <position x="412" y="160"/>
+                      <position x="456" y="192"/>
+                      <position x="456" y="176"/>
+                      <position x="352" y="176"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -156,21 +156,21 @@
               </outputVariables>
             </block>
             <inVariable localId="2422276" executionOrderId="0" height="32" width="128" negated="false">
-              <position x="176" y="144"/>
+              <position x="336" y="144"/>
               <connectionPointOut>
                 <relPosition x="112" y="16"/>
               </connectionPointOut>
-              <expression>a</expression>
+              <expression>TON0.Q</expression>
             </inVariable>
             <inVariable localId="1649333" executionOrderId="0" height="32" width="128" negated="false">
-              <position x="176" y="240"/>
+              <position x="528" y="272"/>
               <connectionPointOut>
                 <relPosition x="112" y="16"/>
               </connectionPointOut>
               <expression>t</expression>
             </inVariable>
             <outVariable localId="7450601" executionOrderId="0" height="32" width="128" negated="false">
-              <position x="480" y="64"/>
+              <position x="800" y="144"/>
               <connectionPointIn>
                 <relPosition x="0" y="16"/>
                 <connection refLocalId="5713571" formalParameter="Q">
@@ -181,19 +181,6 @@
                 </connection>
               </connectionPointIn>
               <expression>out</expression>
-            </outVariable>
-            <outVariable localId="7718793" executionOrderId="0" height="32" width="128" negated="false">
-              <position x="720" y="144"/>
-              <connectionPointIn>
-                <relPosition x="0" y="16"/>
-                <connection refLocalId="4277444" formalParameter="Q">
-                  <position x="736" y="176"/>
-                  <position x="806" y="176"/>
-                  <position x="806" y="224"/>
-                  <position x="876" y="224"/>
-                </connection>
-              </connectionPointIn>
-              <expression>a</expression>
             </outVariable>
           </FBD>
         </body>

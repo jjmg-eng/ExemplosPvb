@@ -21,15 +21,14 @@ void OSC_body__(OSC *data__) {
   }
   // Initialise TEMP variables
 
-  __SET_VAR(data__->TON0.,IN,,__GET_VAR(data__->A,));
-  __SET_VAR(data__->TON0.,PT,,__GET_VAR(data__->T,));
-  TON_body__(&data__->TON0);
-  __SET_VAR(data__->,OUT,,__GET_VAR(data__->TON0.Q,));
   __SET_VAR(data__->,_TMP_NOT1466428_OUT,,!(__GET_VAR(data__->TON0.Q,)));
   __SET_VAR(data__->TOF0.,IN,,__GET_VAR(data__->_TMP_NOT1466428_OUT,));
   __SET_VAR(data__->TOF0.,PT,,__GET_VAR(data__->T,));
   TOF_body__(&data__->TOF0);
-  __SET_VAR(data__->,A,,__GET_VAR(data__->TOF0.Q,));
+  __SET_VAR(data__->TON0.,IN,,__GET_VAR(data__->TOF0.Q,));
+  __SET_VAR(data__->TON0.,PT,,__GET_VAR(data__->T,));
+  TON_body__(&data__->TON0);
+  __SET_VAR(data__->,OUT,,__GET_VAR(data__->TON0.Q,));
 
   goto __end;
 
